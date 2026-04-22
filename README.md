@@ -7,6 +7,14 @@
 [![Works with Cursor](https://img.shields.io/badge/Works-Cursor-purple)](https://cursor.sh)
 [![Open Source](https://img.shields.io/badge/Open-Source-green)](https://github.com/tokenarc/thunderwire)
 
+## Quick Install
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/tokenarc/thunderwire/main/install.sh)
+```
+
+Or see [SETUP.md](SETUP.md) for manual setup per tool.
+
 ## What Is This
 
 THUNDERWIRE is a professional X (Twitter) content system embedded in a single file. It runs inside any AI — Claude Code, Cursor, Windsurf, ChatGPT, Gemini, or any API-based tool — and transforms any input (a topic, a niche, even just "find me something viral") into algorithmically engineered, human-tone content with built-in engagement strategy.
