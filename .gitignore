@@ -1,0 +1,24 @@
+# Personal account data — do not commit filled memory blocks
+# Uncomment the line below to keep your personal config private:
+# THUNDERWIRE.md
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Editor
+.vscode/
+.idea/
+*.sublime-project
+
+# Logs
+*.log
+*.tmp
+*.temp
+
+# Node (if integrations are added later)
+node_modules/
+.env
+.env.local

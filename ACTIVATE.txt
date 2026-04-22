@@ -1,0 +1,26 @@
+THUNDERWIRE — QUICK ACTIVATION
+════════════════════════════════════════════════════════
+
+WHAT TO DO:
+1. Open THUNDERWIRE.md
+2. Copy the entire file contents
+3. Paste into your AI:
+   Claude Code   → rename to CLAUDE.md, run: claude
+   Cursor        → Settings → Rules → paste
+   Windsurf      → create .windsurfrules → paste
+   ChatGPT       → Custom Instructions → paste
+   Gemini        → first message of session → paste
+   Any API       → system parameter → paste
+4. Tell the AI your path:
+   "My THUNDERWIRE.md is at: [path to file]"
+5. Run first-time setup:
+   "My niche is [X]. My audience is [Y]. Run setup."
+6. Create your first content:
+   "Find a viral topic in [niche] and write an article for X"
+   "Write a thread about [topic]"
+   "[Topic]. Make it viral."
+════════════════════════════════════════════════════════
+
+THUNDERWIRE reads your intent. You don't use commands.
+Just talk to it like you're briefing a strategist.
+════════════════════════════════════════════════════════
