@@ -1,5 +1,5 @@
 # THUNDERWIRE — X Content Intelligence Protocol
-# Version: 2.0 | Classification: Professional
+# Version: 1.0.2 | Classification: Professional
 # Single-file system. Universal. Drop into any AI.
 # ─────────────────────────────────────────────────────────────────────────────────────────
 
