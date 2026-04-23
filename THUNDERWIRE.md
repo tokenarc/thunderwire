@@ -1498,48 +1498,99 @@ If AI tool supports file creation: Create as `thunderwire_[topic]_[YYYYMMDD].txt
 ---
 
 # ═══════════════════════════════════════════════════════════
-# SECTION — MODEL RECOMMENDATIONS
-# ═══════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════
+# THUNDERWIRE MODEL RECOMMENDATIONS
+# ═══════════════════════════════════════════════════════════════════
 
-Model recommendations for THUNDERWIRE tasks:
+THUNDERWIRE runs on any AI. Output quality scales with model capability.
+State your model during setup and THUNDERWIRE calibrates automatically.
 
-| TIER | MODEL | USE CASE | COST |
-|------|-------|----------|------|
-| Free | Claude 3 Haiku | Simple research, quick hooks | $0 |
-| Free | GPT-4o Mini | Content review, basic analysis | $0 |
-| Paid | Claude 3.5 Sonnet | Full pipeline, threads, complex angles | $$ |
-| Paid | GPT-4o | Deep research, high-stakes content | $$$ |
-| Premium | Claude 3.5 Opus | Maximum quality, viral content | $$$$ |
-| Premium | GPT-4 Turbo | Timing analysis, predictions | $$$$ |
+## TIER 1 — FULL POWER (All 12 phases, maximum depth)
 
-Best for viral threads: Claude 3.5 Sonnet or GPT-4o
-Best for research: GPT-4o Mini (fast) → GPT-4o (deep)
+MODEL                    PROVIDER         NOTES
+Claude Sonnet 4          Anthropic API    Best for THUNDERWIRE. Long context. Excellent at multi-phase protocols.
+Claude Opus 4            Anthropic API    Strongest output. Slower. Use for complex audits and deep research.
+GPT-4o                   OpenAI API       Strong on Phases 1+2. Slightly weaker on voice fingerprinting.
+Gemini 1.5 Pro           Google API       Excellent research phase. Phase 6 needs more manual guidance.
+
+## TIER 2 — STRONG (Full pipeline, moderate depth)
+
+MODEL                    PROVIDER         NOTES
+Claude Haiku 3.5         Anthropic API    Fastest Claude. Full pipeline works. Profile review is shallower.
+GPT-4o mini              OpenAI API       Fast + cheap. Phase 6 needs explicit prompting.
+Gemini 2.0 Flash         Google API       Free tier available. Phase 6 slightly weaker.
+Llama 3.3 70B            Groq API (free)  RECOMMENDED FREE TIER. Fast inference. All phases run well.
+
+## TIER 3 — CAPABLE (Low-Parameter Optimization mode active)
+
+MODEL                    PROVIDER         NOTES
+Llama 3.1 8B             Groq / local     Activate LOW-PARAM MODE. Run phases individually.
+Qwen 2.5 7B              Ollama / local   Good at hooks + voice. Needs explicit output format prompts.
+Mistral 7B               Ollama / local   Solid for content architecture. Phase 6 needs heavy prompting.
+DeepSeek V3              OpenRouter       Strong reasoning. Good for Phases 1-2. Free tier available.
+Gemma 2 9B               Ollama / local   Reliable for content generation. Weaker on strategy phases.
+
+## TIER 4 — MOBILE / ULTRA LOW RESOURCE
+
+MODEL                    PROVIDER         NOTES
+Llama 3.2 3B             Ollama / Termux  Minimum viable. Phase 3 + 6 only.
+Phi-3 Mini               Ollama / Termux  Good for short content. Phase 6 needs full explicit list.
+SmolLM2 1.7B             Hugging Face     Emergency fallback. Tweets only.
+
+## RECOMMENDED FREE STACK (Mobile-first / Termux)
+
+PRIMARY:   Groq API — llama-3.3-70b-versatile (free, fast, full pipeline)
+BACKUP:    Gemini Flash — free tier (when Groq rate-limited)
+LOCAL:     Qwen 2.5 7B via Ollama on Termux (offline capable)
+PREMIUM:   Claude Sonnet 4 via API (when quality matters most)
+
+Access Groq free: console.groq.com | OpenRouter free: openrouter.ai | Gemini free: aistudio.google.com
 
 ---
 
-# ═══════════════════════════════════════════════════════════
-# SECTION — LOW-PARAMETER OPTIMIZATION
-# ═══════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════
+# LOW-PARAMETER OPTIMIZATION LAYER
+# ═══════════════════════════════════════════════════════════════════
 
-For mobile/slow connections. Reduce API usage while maintaining quality.
+THUNDERWIRE automatically adjusts based on model capability.
+Activate: "I'm using [model name]. Run in low-param mode."
 
-## LPO Tiers:
+TIER 1 (70B+): All 12 phases full depth. No modifications.
 
-**LPO Tier 1 (Minimal)**
-- Skip Phase 5 (Voice)
-- Skip Phase 11 (Viral Prediction)
-- Single hook instead of 5
+TIER 2 (13B-70B):
+→ Phase 1: 5 searches instead of 7
+→ Phase 2: 5 angles instead of 8. Score top 3.
+→ Phase 6: Layers 1-5 only. Skip detector-specific check.
+→ Phase 9: 6 dimensions instead of 9.
+→ Phase 10: 5 dimensions instead of 8.
 
-**LPO Tier 2 (Balanced)**
-- Skip voice fingerprint
-- Single hook
-- Skip temporal analysis
+TIER 3 (7B-13B):
+→ Run phases one at a time with explicit prompts. Do not chain all phases in one call.
+→ Phase 1: 3 searches. Focus on audience language extraction.
+→ Phase 2: 3 angles, pick 1 with brief rationale.
+→ Phase 3: 3 hooks instead of 5.
+→ Phases 4+5: Combined single pass.
+→ Phase 6: Provide full forbidden terms list explicitly in each call. Do not assume model remembered.
+→ Phase 7: Simplified sprint (post time + 2 pre-written replies).
+→ Phases 9-12: Available in separate focused calls only.
 
-**LPO Tier 3 (Full Quality)**
-- All phases active
-- Maximum output
+TIER 4 (<7B):
+→ Manual prompting per element. THUNDERWIRE is a reference guide, not autonomous executor.
+→ Step 1: "Research this topic. Find: velocity, audience language, competitor gap."
+→ Step 2: "Generate 3 angles. Score briefly."
+→ Step 3: "Write 3 hooks for this angle: [paste]."
+→ Step 4: "Write content using this hook: [paste]. Keep it punchy."
+→ Step 5: Paste Phase 6 forbidden terms list manually. Ask for rewrite.
+→ Step 6: Ask for post time + 2 replies.
 
-Trigger: "Use LPO" or "low power mode"
+Phase 6 explicit prompt for tiny models — paste every time:
+"Rewrite this. Rules: 1. No 4 consecutive sentences within 5 words of each other. 2. Include at least 2 sentences under 6 words. 3. Remove: leverage, utilize, navigate, deep dive, game-changer, unlock, synergy, ecosystem, robust, comprehensive, holistic, seamless, furthermore, moreover, additionally, in conclusion, to summarize. 4. Add a specific number or date. 5. Strengthen one opinion — remove all hedging. Return: rewrite + human score /10."
+
+GRADUAL IMPROVEMENT PATH:
+START:    Any model → paste THUNDERWIRE.md → "My niche is [X]. Run setup."
+LEVEL UP: "Research [topic] and create content" → full Phases 1-8
+ADVANCED: Phase 9 (profile), Phase 10 (content review), Phase 11 (viral check)
+EXPERT:   All 12 phases on demand. Memory maintained. TXT exports. Full loop.
 
 ---
 
@@ -1728,11 +1779,13 @@ Q6: "What topics are you most knowledgeable about?"
 Q7: "What topics do you want to explore but haven't posted about yet?"
 Q8: "Do you have X Premium?"
 Q9: "Paste 3-5 posts you've written that feel most like you. Any format."
+Q10: "What AI model are you using with THUNDERWIRE? (Examples: Claude, ChatGPT, Groq/Llama, local model.) This lets me calibrate output depth."
 ```
 
 After all answers:
 1. Write Memory Blocks 1, 2, 3 (partial — from Q9 samples)
-2. Confirm: "THUNDERWIRE configured. Your niche is [X]. Voice fingerprint [calibrated/pending]. Ready for /intel [topic] or just tell me what you want to create."
+2. Calibrate to model tier based on Q10 answer
+3. Confirm: "THUNDERWIRE v1.0.2 configured. Niche: [X]. Voice: [calibrated/pending]. Model: [model] — running in [Tier 1/2/3/4] mode. Ready."
 
 ---
 
@@ -1762,6 +1815,22 @@ After all answers:
 10. Negative signals (-74x weight) mean: never write anything that would cause
     a reasonable reader to block or report the account. Strong opinions: yes.
     Personal attacks, misinformation, manufactured outrage: never.
+
+11. Human score minimum is 7/10. Below 7: rebuild, don't deliver. A 7 is the floor.
+    Aim for 9. A 10 is reserved for reference-quality pieces.
+
+12. Profile Review (Phase 9) always includes a BIO REWRITE block. Not suggestions —
+    a ready-to-paste rewrite. Suggestions alone are not enough.
+
+13. Content Review (Phase 10) always ends with a VERDICT: PUBLISH READY / MINOR FIXES /
+    MAJOR REWORK. No ambiguous "it's pretty good."
+
+14. Viral Prediction (Phase 11) runs BEFORE writing, not after. It is a pre-write
+    filter, not a post-write validation.
+
+15. TXT Export only on explicit user request. Never auto-export. Trigger words:
+    "save", "export", "give me the file", "txt". Always include the full
+    posting package, not just the content body.
 ```
 
 ---
